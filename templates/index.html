@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Willow Speech to Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Willow Speech to Text </h1>
+            <div class="user-info">
+                Welcome, {{ current_user.username }}
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <div class="status-indicator">
+            <div class="led" id="statusLed"></div>
+            <span id="statusText">Not Listening</span>
+        </div>
+
+        <div class="main-content">
+            <div class="text-area">
+                <textarea id="transcription" readonly></textarea>
+            </div>
+            
+            <div class="controls">
+                <button id="startBtn">Start Listening</button>
+                <button id="stopBtn" disabled>Stop Listening</button>
+            </div>
+
+            <div class="feedback-section">
+                <p>Was the transcription correct?</p>
+                <button id="correctBtn">Correct</button>
+                <button id="incorrectBtn">Incorrect</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
